@@ -143,7 +143,7 @@ public class Tournament {
 	public void setNumberOfPlayers(int numberOfPlayers) {
 		this.numberOfPlayers = numberOfPlayers;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Tournament [name=" + name + ", numberOfPlayers=" + numberOfPlayers + ", type=" + type + ", system="

@@ -11,5 +11,7 @@ import com.leonhead.chesstournament.entity.Player;
 public interface PlayerRepository extends JpaRepository<Player, Integer> {
 
 	public List<Player> findByTeamId(int id);
+	
+	public List<Player> findByTournaments_Id(int id);
 
 }

@@ -12,13 +12,12 @@ create table `tournament`(
 `name` varchar(125) not null,
 `system` varchar(45) not null,
 `type` varchar(45) not null,
-`number_of_players` int(11) not null,
-`street` varchar(45) not null,
-`city` varchar(45) not null,
-`country` varchar(45) not null,
+`number_of_players` int(11),
+`street` varchar(45),
+`city` varchar(45),
+`country` varchar(45),
 `start_date` TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP,
 `end_date` TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP,
-`organizer_id` int(11) not null,
 
 primary key(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
