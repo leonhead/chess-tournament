@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -53,10 +54,14 @@ public class Tournament {
 	@Embedded
 	private Address address;
 
+	@OneToMany(mappedBy = "tournament", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
+	private List<Round> rounds = new ArrayList<>();
+
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH })
 	@JoinTable(name = "tournament_player", joinColumns = @JoinColumn(name = "tournament_id"), inverseJoinColumns = @JoinColumn(name = "player_id"))
-	private List<Player> players = new ArrayList<Player>();;
+	private List<Player> players = new ArrayList<Player>();
 
 	public Tournament() {
 	}
@@ -143,7 +148,17 @@ public class Tournament {
 	public void setNumberOfPlayers(int numberOfPlayers) {
 		this.numberOfPlayers = numberOfPlayers;
 	}
+
+	public List<Round> getRounds() {
+		return rounds;
+	}
+
+	public void setRounds(List<Round> rounds) {
+		this.rounds = rounds;
+	}
 	
+	
+
 	@Override
 	public String toString() {
 		return "Tournament [name=" + name + ", numberOfPlayers=" + numberOfPlayers + ", type=" + type + ", system="

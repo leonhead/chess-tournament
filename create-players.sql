@@ -59,10 +59,32 @@ INSERT INTO `tournament_player` VALUES
     (2, 20),
     (3, 20);
     
-    
+INSERT INTO `round` VALUES
+(1, 1 , 1), 
+(2, 2 , 1),
+(3, 1, 2 );
 
 
-    
+INSERT INTO `game` VALUES
+(1, 1),
+(2, 1), 
+(3, 2),
+(4, 2),
+(5, 3);
+
+
+INSERT INTO `game_player` VALUES
+(1, 1, 1), 
+(1, 2, 0),
+(2, 3, 1),
+(2, 4, 0),
+(3, 1, 1),
+(3, 3, 0),
+(4, 2, 1),
+(4 ,4, 0),
+(5, 1, 0),
+(5, 7, 1);
+
 
     
 

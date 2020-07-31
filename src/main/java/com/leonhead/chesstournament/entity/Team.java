@@ -11,10 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 @Entity
 @Table(name = "team")
 public class Team {
@@ -29,7 +25,6 @@ public class Team {
 
 	@OneToMany(mappedBy = "team", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH })
-	@JsonBackReference
 	private List<Player> players;
 
 	public Team() {
@@ -54,7 +49,7 @@ public class Team {
 	public void setPlayers(List<Player> players) {
 		this.players = players;
 	}
-	
+
 	public int getMembers() {
 		return getPlayers().size();
 	}
