@@ -1,22 +1,14 @@
 package com.leonhead.chesstournament.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "game")
@@ -27,14 +19,23 @@ public class Game {
 	@Column(name = "id")
 	private int id;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH })
-	@JoinTable(name = "game_player", joinColumns = @JoinColumn(name = "game_id"), inverseJoinColumns = @JoinColumn(name = "player_id"))
-	private List<Player> players = new ArrayList<Player>();
-
 	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinColumn(name = "round_id")
 	private Round round;
+
+	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+	@JoinColumn(name = "white_player_id")
+	private Player whitePlayer;
+
+	@ManyToOne(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+	@JoinColumn(name = "black_player_id")
+	private Player blackPlayer;
+
+	@Column(name = "score")
+	private double score;
+
+	@Column(name = "board_number")
+	private int boardNumber;
 
 	public Game() {
 	}
@@ -55,12 +56,43 @@ public class Game {
 		this.round = round;
 	}
 
-	public List<Player> getPlayers() {
-		return players;
+	public Player getWhitePlayer() {
+		return whitePlayer;
 	}
 
-	public void setPlayers(List<Player> players) {
-		this.players = players;
+	public void setWhitePlayer(Player whitePlayer) {
+		this.whitePlayer = whitePlayer;
 	}
 
+	public Player getBlackPlayer() {
+		return blackPlayer;
+	}
+
+	public void setBlackPlayer(Player blackPlayer) {
+		this.blackPlayer = blackPlayer;
+	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
+	}
+
+	public int getBoardNumber() {
+		return boardNumber;
+	}
+
+	public void setBoardNumber(int boardNumber) {
+		this.boardNumber = boardNumber;
+	}
+
+	public String getWhitePlayerName() {
+		return this.whitePlayer.getFirstName() + " " + this.whitePlayer.getLastName();
+	}
+
+	public String getBlackPlayerName() {
+		return this.blackPlayer.getFirstName() + " " + this.blackPlayer.getLastName();
+	}
 }

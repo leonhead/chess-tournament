@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -44,10 +45,13 @@ public class Player {
 	@JoinTable(name = "tournament_player", joinColumns = @JoinColumn(name = "player_id"), inverseJoinColumns = @JoinColumn(name = "tournament_id"))
 	private List<Tournament> tournaments = new ArrayList<Tournament>();
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+	@OneToMany(mappedBy = "whitePlayer", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH })
-	@JoinTable(name = "game_player", joinColumns = @JoinColumn(name = "player_id"), inverseJoinColumns = @JoinColumn(name = "game_id"))
-	private List<Game> games = new ArrayList<>();
+	private List<Game> whiteGames = new ArrayList<>();
+
+	@OneToMany(mappedBy = "blackPlayer", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
+	private List<Game> blackGames = new ArrayList<>();
 
 	public Player() {
 	}
@@ -112,12 +116,20 @@ public class Player {
 		this.tournaments = tournaments;
 	}
 
-	public List<Game> getGames() {
-		return games;
+	public List<Game> getWhiteGames() {
+		return whiteGames;
 	}
 
-	public void setGames(List<Game> games) {
-		this.games = games;
+	public void setWhiteGames(List<Game> whiteGames) {
+		this.whiteGames = whiteGames;
+	}
+
+	public List<Game> getBlackGames() {
+		return blackGames;
+	}
+
+	public void setBlackGames(List<Game> blackGames) {
+		this.blackGames = blackGames;
 	}
 
 	@Override

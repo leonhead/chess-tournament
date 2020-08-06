@@ -10,7 +10,6 @@ drop table if exists `tournament`;
 drop table if exists `player`;
 drop table if exists `team`;
 
-
 create table `tournament`(
 `id` int(11) not null auto_increment,
 `name` varchar(125) not null,
@@ -65,7 +64,6 @@ REFERENCES `team` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
-
 CREATE TABLE `tournament_player` (
   `tournament_id` int(11) NOT NULL,
   `player_id` int(11) NOT NULL,
@@ -87,31 +85,27 @@ CREATE TABLE `tournament_player` (
 create table `game`(
 `id` int(11) not null auto_increment,
 `round_id` int(11) default null,
+`board_number` int(11) not null,
+`score` double(2,1) NOT NULL,
+`white_player_id` int(11) not null,
+`black_player_id` int(11) not null,
 
 primary key(`id`),
 
 KEY `FK_ROUND_idx` (`round_id`),
 CONSTRAINT `FK_ROUND` FOREIGN KEY (`round_id`) 
-REFERENCES `round` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+REFERENCES `round` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+
+KEY `FK_WHITE_PLAYER_idx` (`white_player_id`),
+CONSTRAINT `FK_WHITE_PLAYER` FOREIGN KEY (`white_player_id`) 
+REFERENCES `player` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+
+KEY `FK_BLACK_PLAYER_idx` (`black_player_id`),
+CONSTRAINT `FK_BLACK_PLAYER` FOREIGN KEY (`black_player_id`) 
+REFERENCES `player` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
-CREATE TABLE `game_player` (
-  `game_id` int(11) NOT NULL,
-  `player_id` int(11) NOT NULL,
-  `score` double(2,1) NOT NULL,
-  
-  PRIMARY KEY (`game_id`,`player_id`),
-  
-  KEY `FK_GAME_idx` (`game_id`),
-  
-  CONSTRAINT `FK_GAME` FOREIGN KEY (`game_id`) 
-  REFERENCES `game` (`id`) 
-  ON DELETE NO ACTION ON UPDATE NO ACTION,
-  
-  CONSTRAINT `FK_PLAYER_GAME` FOREIGN KEY (`player_id`) 
-  REFERENCES `player` (`id`) 
-  ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
