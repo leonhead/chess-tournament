@@ -89,10 +89,10 @@ public class Game {
 	}
 
 	public String getWhitePlayerName() {
-		return this.whitePlayer.getFirstName() + " " + this.whitePlayer.getLastName();
+		return this.whitePlayer.getName();
 	}
 
 	public String getBlackPlayerName() {
-		return this.blackPlayer.getFirstName() + " " + this.blackPlayer.getLastName();
+		return this.blackPlayer.getName();
 	}
 }

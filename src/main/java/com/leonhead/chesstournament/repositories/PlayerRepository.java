@@ -4,14 +4,17 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.leonhead.chesstournament.entity.Player;
 
 @CrossOrigin("http://localhost:4200")
 public interface PlayerRepository extends JpaRepository<Player, Integer> {
 
-	public List<Player> findByTeamId(int id);
+	public List<Player> findByTeamId(@RequestParam("id") int id);
 	
-	public List<Player> findByTournaments_Id(int id);
+	public List<Player> findByTournaments_Id(@RequestParam("id") int id);
+	
+	public List<Player> findByNameContaining(@RequestParam("name") String name);
 
 }

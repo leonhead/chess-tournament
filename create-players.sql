@@ -11,26 +11,26 @@ INSERT INTO `team` VALUES
     
 
 INSERT INTO `player` VALUES   
-(1, 'Selina', 'Erickson', 0 ,1),
-(2, 'Jasmin',  'Colon', 1302, 1),
-(3, 'Hajra',  'Mcneill', 1809, 2),
-(4, 'Toyah',  'Holding', 2087, 2),
-(5, 'Aydin',  'Hume', 1788, 1),
-(6, 'Ayva',  'Crossley', 1572, 2),
-(7, 'Louisa',  'Snider', 1405, 1),
-(8, 'Parker',  'Cope', 1438, 1),
-(9, 'Marek',  'Mcconnell', 1752, 1),
-(10, 'Hal',  'Stephenson', 1731, 2),
-(11, 'Jasmine',  'Norton', 1190, 1),
-(12, 'Siena',  'Kendall', 2089, 2),
-(13, 'Findlay',  'Broadhurst', 1656, 1),
-(14, 'Teigan',  'Britton', 1389, 1),
-(15, 'Aleisha',  'Macdonald', 2192, 1),
-(16, 'Catherine',  'Spencer', 2087, 2),
-(17, 'Taliyah',  'Willis', 1978, 1),
-(18, 'Tasmin',  'Macias', 1492, 2),
-(19, 'Tobias',  'Haas', 1578, 2),
-(20, 'Libbi',  'Bassett', 2101, 1);
+(1, 'Selina Erickson', 0 ,1),
+(2, 'Jasmin Colon', 1302, 1),
+(3, 'Hajra Mcneill', 1809, 2),
+(4, 'Toyah Holding', 2087, 2),
+(5, 'Aydin Hume', 1788, 1),
+(6, 'Ayva Crossley', 1572, 2),
+(7, 'Louisa Snider', 1405, 1),
+(8, 'Parker Cope', 1438, 1),
+(9, 'Marek Mcconnell', 1752, 1),
+(10, 'Hal Stephenson', 1731, 2),
+(11, 'Jasmine Norton', 1190, 1),
+(12, 'Siena Kendall', 2089, 2),
+(13, 'Findlay Broadhurst', 1656, 1),
+(14, 'Teigan Britton', 1389, 1),
+(15, 'Aleisha Macdonald', 2192, 1),
+(16, 'Catherine Spencer', 2087, 2),
+(17, 'Taliyah Willis', 1978, 1),
+(18, 'Tasmin Macias', 1492, 2),
+(19, 'Tobias Haas', 1578, 2),
+(20, 'Libbi Bassett', 2101, 1);
   
    
     

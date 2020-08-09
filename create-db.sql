@@ -52,8 +52,7 @@ primary key (`id`)
 
 create table `player`(
 `id` int(11) not null auto_increment,
-`first_name` varchar(45) default null,
-`last_name` varchar(45) default null,
+`name` varchar(45) default null,
 `elo` int(5) default null ,
 `team_id` int(11) default null,
 primary key(`id`),
