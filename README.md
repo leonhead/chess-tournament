@@ -32,3 +32,6 @@ Run the Java application on a dev server. Navigate to http://localhost:8080/ches
 
 /chessplan/api/games  
 /chessplan/api/games/{id}
+
+## Architecture
+![architecture](https://github.com/leonhead/chess-tournament/blob/master/architecture.png)
