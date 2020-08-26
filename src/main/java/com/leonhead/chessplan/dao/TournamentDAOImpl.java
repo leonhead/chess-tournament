@@ -1,4 +1,4 @@
-package com.leonhead.chessplan.doa;
+package com.leonhead.chessplan.dao;
 
 import java.util.List;
 import java.util.Optional;

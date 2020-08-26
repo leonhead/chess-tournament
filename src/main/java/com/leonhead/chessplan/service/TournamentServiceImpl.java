@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.leonhead.chessplan.doa.TournamentDAO;
+import com.leonhead.chessplan.dao.TournamentDAO;
 import com.leonhead.chessplan.entity.Player;
 import com.leonhead.chessplan.entity.Round;
 import com.leonhead.chessplan.entity.Tournament;

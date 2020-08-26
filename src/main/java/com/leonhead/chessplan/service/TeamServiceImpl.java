@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.leonhead.chessplan.doa.TeamDAO;
+import com.leonhead.chessplan.dao.TeamDAO;
 import com.leonhead.chessplan.entity.Team;
 
 @Service
